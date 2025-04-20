@@ -62,7 +62,7 @@ const translations = {
     result: 'Cooked Weight',
   },
   sk: {
-    title: 'Konvertor Hmotnosti Jedla',
+    title: 'Konvertor hmotnosti jedla',
     rawLabel: 'Hmotnosť surového jedla (gramy)',
     foodType: 'Typ jedla',
     convert: 'Prepočítať',
@@ -93,22 +93,22 @@ export default function FoodConverter() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white text-slate-800 font-mono px-4 sm:px-2 md:px-0">
-      {/* title */}
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-4xl font-bold pb-4 text-center">{t.title}</h1>
+    <div className="container flex flex-col justify-center items-center min-h-screen min-w-screen bg-white text-slate-800 font-mono px-4">
+      {/* <select
+        value={language}
+        onChange={e => setLanguage(e.target.value as 'en' | 'sk')}
+        className="border-2 border-black p-2">
+        <option value="en">English</option>
+        <option value="sk">Slovenčina</option>
+      </select> */}
 
-        {/* <select
-          value={language}
-          onChange={e => setLanguage(e.target.value as 'en' | 'sk')}
-          className="border-2 border-black p-2">
-          <option value="en">English</option>
-          <option value="sk">Slovenčina</option>
-        </select> */}
+      {/* title */}
+      <div className="">
+        <h1 className="text-3xl font-bold pb-4 text-center text-slate-700">{t.title}</h1>
       </div>
 
-      <Card className="max-w-lg border-2 border-black w-full drop-shadow-lg ">
-        <CardContent className="px-6 py-4">
+      <Card className="max-w-lg border-2 border-slate-500 w-full drop-shadow-xl drop-shadow-slate-300">
+        <CardContent className="px-10 py-8">
           <div className="mb-6">
             <Label htmlFor="weight" className="mb-2">
               {t.rawLabel}
