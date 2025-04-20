@@ -61,7 +61,7 @@ const translations = {
 };
 
 export default function FoodConverter() {
-  const [language, setLanguage] = useState<keyof typeof translations>('sk');
+  const [language] = useState<keyof typeof translations>('sk');
   const [rawWeight, setRawWeight] = useState(100);
   const [foodType, setFoodType] = useState('chicken breast');
   const [cookedWeight, setCookedWeight] = useState<string | null>(null);
