@@ -260,12 +260,18 @@ const conversionGroups = {
             sk: 'Mäso'
         },
         items: {
+            'hydinová pečeň': 0.65,
+            'hovädzia pečeň': 0.6,
+            'hovädzie mäso': 0.7,
+            'šunka s min. 95% masa': 0.75,
+            'telacie mäso': 0.7,
+            'kuracie mäso bez kože': 0.75,
+            'morčacie mäso bez koze': 0.75,
+            zverina: 0.7,
             'mäso na nudličky': 0.7,
             'mäso mleté restované': 0.6,
             'mäso dusené': 0.65,
-            'mäso pečené': 0.6,
-            'steak medium': 0.8,
-            'steak prepečený': 0.75
+            'mäso pečené': 0.6
         }
     },
     fish: {
@@ -274,8 +280,12 @@ const conversionGroups = {
             sk: 'Ryby'
         },
         items: {
-            ryba: 0.9,
-            krevety: 0.75
+            pstruh: 0.85,
+            treska: 0.8,
+            losos: 0.8,
+            pangasius: 0.8,
+            krevety: 0.75,
+            ryba: 0.9
         }
     },
     sides: {
@@ -334,7 +344,7 @@ function FoodConverter() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex flex-col justify-center items-center min-h-screen bg-white text-slate-800 font-mono",
+        className: "flex flex-col justify-center items-center min-h-screen bg-white text-slate-800 font-mono px-4 sm:px-2 md:px-0",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex justify-between items-center mb-4",
@@ -343,16 +353,16 @@ function FoodConverter() {
                     children: t.title
                 }, void 0, false, {
                     fileName: "[project]/src/components/FoodConverter.tsx",
-                    lineNumber: 89,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/FoodConverter.tsx",
-                lineNumber: 88,
+                lineNumber: 98,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
-                className: "max-w-lg border-2 border-black w-full",
+                className: "max-w-lg border-2 border-black w-full drop-shadow-lg ",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                     className: "px-6 py-4",
                     children: [
@@ -365,7 +375,7 @@ function FoodConverter() {
                                     children: t.rawLabel
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 103,
+                                    lineNumber: 113,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -374,16 +384,16 @@ function FoodConverter() {
                                     min: "1",
                                     value: rawWeight,
                                     onChange: (e)=>setRawWeight(Number(e.target.value)),
-                                    className: "border-2 border-black text-lg tw-w-full h-11 rounded-none"
+                                    className: "border-2 border-black text-lg tw-w-full h-12 rounded-none"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 102,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -395,14 +405,17 @@ function FoodConverter() {
                                     children: t.foodType
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 127,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                     id: "food",
                                     value: foodType,
-                                    onChange: (e)=>setFoodType(e.target.value),
-                                    className: "border-2 border-black p-2 w-full text-lg h-11",
+                                    onChange: (e)=>{
+                                        setFoodType(e.target.value);
+                                        setCookedWeight(null);
+                                    },
+                                    className: "border-2 border-black p-2 w-full text-lg h-12",
                                     children: Object.entries(conversionGroups).map(([groupKey, group])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("optgroup", {
                                             label: group.label[language],
                                             children: Object.entries(group.items).map(([food])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -410,80 +423,86 @@ function FoodConverter() {
                                                     children: food.charAt(0).toUpperCase() + food.slice(1)
                                                 }, food, false, {
                                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                                    lineNumber: 128,
+                                                    lineNumber: 141,
                                                     columnNumber: 21
                                                 }, this))
                                         }, groupKey, false, {
                                             fileName: "[project]/src/components/FoodConverter.tsx",
-                                            lineNumber: 126,
+                                            lineNumber: 139,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 120,
+                                    lineNumber: 130,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 116,
+                            lineNumber: 126,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                             onClick: handleConvert,
-                            className: "border-2 border-black bg-gradient-to-r from-emerald-400 to-green-400 hover:from-emerald-300 hover:to-green-500 text-black w-full text-lg  h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer",
+                            className: "border-2 border-black bg-gradient-to-r from-emerald-200 to-green-200 hover:from-emerald-400 hover:to-green-400 text-black w-full text-lg  h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer",
                             children: t.convert
                         }, void 0, false, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 137,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this),
                         cookedWeight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-4",
                             children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                    className: "my-6 h-0.5 bg-slate-300"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/FoodConverter.tsx",
+                                    lineNumber: 166,
+                                    columnNumber: 15
+                                }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "text-lg",
+                                    className: "text-base",
                                     children: [
                                         t.result,
                                         ":"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 151,
+                                    lineNumber: 167,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "ml-2 text-2xl font-bold",
                                     children: [
                                         cookedWeight,
-                                        " grams"
+                                        "g"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 152,
+                                    lineNumber: 168,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 150,
+                            lineNumber: 165,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/FoodConverter.tsx",
-                    lineNumber: 101,
+                    lineNumber: 111,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/FoodConverter.tsx",
-                lineNumber: 100,
+                lineNumber: 110,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FoodConverter.tsx",
-        lineNumber: 86,
+        lineNumber: 96,
         columnNumber: 5
     }, this);
 }

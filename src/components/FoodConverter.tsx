@@ -10,19 +10,29 @@ const conversionGroups = {
   meat: {
     label: {en: 'Meat', sk: 'Mäso'},
     items: {
+      'hydinová pečeň': 0.65,
+      'hovädzia pečeň': 0.6,
+      'hovädzie mäso': 0.7,
+      'šunka s min. 95% masa': 0.75,
+      'telacie mäso': 0.7,
+      'kuracie mäso bez kože': 0.75,
+      'morčacie mäso bez koze': 0.75,
+      zverina: 0.7,
       'mäso na nudličky': 0.7,
       'mäso mleté restované': 0.6,
       'mäso dusené': 0.65,
       'mäso pečené': 0.6,
-      'steak medium': 0.8,
-      'steak prepečený': 0.75,
     },
   },
   fish: {
     label: {en: 'Fish', sk: 'Ryby'},
     items: {
-      ryba: 0.9,
+      pstruh: 0.85,
+      treska: 0.8,
+      losos: 0.8,
+      pangasius: 0.8,
       krevety: 0.75,
+      ryba: 0.9,
     },
   },
   sides: {
@@ -83,7 +93,7 @@ export default function FoodConverter() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white text-slate-800 font-mono">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-white text-slate-800 font-mono px-4 sm:px-2 md:px-0">
       {/* title */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-4xl font-bold pb-4 text-center">{t.title}</h1>
@@ -97,7 +107,7 @@ export default function FoodConverter() {
         </select> */}
       </div>
 
-      <Card className="max-w-lg border-2 border-black w-full">
+      <Card className="max-w-lg border-2 border-black w-full drop-shadow-lg ">
         <CardContent className="px-6 py-4">
           <div className="mb-6">
             <Label htmlFor="weight" className="mb-2">
@@ -109,7 +119,7 @@ export default function FoodConverter() {
               min="1"
               value={rawWeight}
               onChange={e => setRawWeight(Number(e.target.value))}
-              className="border-2 border-black text-lg tw-w-full h-11 rounded-none"
+              className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
             />
           </div>
 
@@ -120,8 +130,11 @@ export default function FoodConverter() {
             <select
               id="food"
               value={foodType}
-              onChange={e => setFoodType(e.target.value)}
-              className="border-2 border-black p-2 w-full text-lg h-11">
+              onChange={e => {
+                setFoodType(e.target.value);
+                setCookedWeight(null);
+              }}
+              className="border-2 border-black p-2 w-full text-lg h-12">
               {Object.entries(conversionGroups).map(([groupKey, group]) => (
                 <optgroup key={groupKey} label={group.label[language]}>
                   {Object.entries(group.items).map(([food]) => (
@@ -136,9 +149,11 @@ export default function FoodConverter() {
 
           <Button
             onClick={handleConvert}
-            className="border-2 border-black bg-gradient-to-r from-emerald-400 to-green-400 hover:from-emerald-300 hover:to-green-500 text-black w-full text-lg  h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer">
+            className="border-2 border-black bg-gradient-to-r from-emerald-200 to-green-200 hover:from-emerald-400 hover:to-green-400 text-black w-full text-lg  h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer">
             {t.convert}
           </Button>
+
+          {/* divider */}
 
           {/* {cookedWeight && (
             <div className="text-xl font-bold pt-4">
@@ -147,9 +162,10 @@ export default function FoodConverter() {
           )} */}
 
           {cookedWeight && (
-            <div className="mt-4">
-              <span className="text-lg">{t.result}:</span>
-              <span className="ml-2 text-2xl font-bold">{cookedWeight} grams</span>
+            <div>
+              <hr className="my-6 h-0.5 bg-slate-300" />
+              <span className="text-base">{t.result}:</span>
+              <span className="ml-2 text-2xl font-bold">{cookedWeight}g</span>
             </div>
           )}
         </CardContent>
