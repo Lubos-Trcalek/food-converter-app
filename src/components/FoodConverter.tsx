@@ -106,13 +106,13 @@ export default function FoodConverter() {
       </select> */}
 
       {/* title */}
-      <div>
-        <h1 className="text-4xl font-bold pb-4 text-center text-slate-800 font-sans">{t.title}</h1>
-      </div>
+      <div></div>
 
       {/* Card converter */}
-      <Card className="max-w-lg border-2 border-zinc-800 w-full drop-shadow-2xl ">
-        <CardContent className="px-10 py-8">
+      <Card className="max-w-lg border-2 border-zinc-800 w-full drop-shadow-2xl">
+        <h1 className="text-4xl font-bold pb-4 text-center text-slate-800 font-sans">{t.title}</h1>
+
+        <CardContent className="px-10 pb-8 pt-2">
           <form
             onSubmit={e => {
               e.preventDefault(); // prevent page reload
