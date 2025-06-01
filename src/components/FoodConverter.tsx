@@ -10,45 +10,48 @@ const conversionGroups = {
   meat: {
     label: {en: 'Meat', sk: 'Mäso'},
     items: {
-      'hydinová pečeň': 0.65,
       'hovädzia pečeň': 0.6,
       'hovädzie mäso': 0.7,
+      'hydinová pečeň': 0.65,
+      'kuracie mäso bez kože': 0.75,
+      'kuracie srdcia': 0.725,
+      'kuracie žalúdky': 0.725,
+      'mäso dusené': 0.65,
+      'mäso mleté restované': 0.6,
+      'mäso na nudličky': 0.7,
+      'mäso pečené': 0.6,
+      'morčacie mäso bez koze': 0.75,
       'šunka s min. 95% masa': 0.75,
       'telacie mäso': 0.7,
-      'kuracie mäso bez kože': 0.75,
-      'morčacie mäso bez koze': 0.75,
       zverina: 0.7,
-      'mäso na nudličky': 0.7,
-      'mäso mleté restované': 0.6,
-      'mäso dusené': 0.65,
-      'mäso pečené': 0.6,
     },
   },
   fish: {
     label: {en: 'Fish', sk: 'Ryby'},
     items: {
-      pstruh: 0.85,
-      treska: 0.8,
+      krevety: 0.75,
       losos: 0.8,
       pangasius: 0.8,
-      krevety: 0.75,
+      pstruh: 0.85,
       ryba: 0.9,
+      treska: 0.8,
     },
   },
   sides: {
     label: {en: 'Sides', sk: 'Prílohy'},
     items: {
-      'Zemiaky / batáty varené': 1.0,
-      'zemiaky / batáty pečené (na plátky alebo mesiačiky)': 0.6,
-      'zemiakové hranolky pečené v trúbe': 0.6,
-      'zemiakové gnocchi': 1.1,
-      cestoviny: 2.3,
-      kuskus: 3.0,
-      ryža: 2.5,
       bulgur: 2.8,
+      cestoviny: 2.3,
       krúpy: 2.8,
+      kuskus: 3.0,
       pohánka: 2.8,
+      quinoa: 2.75,
+      ryža: 2.5,
       strukoviny: 2.5,
+      'Zemiaky / batáty varené': 1.0,
+      'zemiakové gnocchi': 1.1,
+      'zemiakové hranolky pečené v trúbe': 0.6,
+      'zemiaky / batáty pečené (na plátky alebo mesiačiky)': 0.6,
     },
   },
 };
@@ -107,6 +110,7 @@ export default function FoodConverter() {
         <h1 className="text-3xl font-bold pb-4 text-center text-slate-700">{t.title}</h1>
       </div>
 
+      {/* Card converter */}
       <Card className="max-w-lg border-2 border-slate-500 w-full drop-shadow-xl drop-shadow-slate-300">
         <CardContent className="px-10 py-8">
           <div className="mb-6">
@@ -117,8 +121,14 @@ export default function FoodConverter() {
               id="weight"
               type="number"
               min="1"
+              inputMode="numeric"
               value={rawWeight}
-              onChange={e => setRawWeight(Number(e.target.value))}
+              onChange={e => {
+                const val = e.target.value;
+                if (/^\d*$/.test(val)) {
+                  setRawWeight(val);
+                }
+              }}
               className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
             />
           </div>

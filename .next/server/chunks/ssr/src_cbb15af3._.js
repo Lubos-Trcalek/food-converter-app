@@ -252,18 +252,20 @@ const conversionGroups = {
             sk: 'Mäso'
         },
         items: {
-            'hydinová pečeň': 0.65,
             'hovädzia pečeň': 0.6,
             'hovädzie mäso': 0.7,
+            'hydinová pečeň': 0.65,
+            'kuracie mäso bez kože': 0.75,
+            'kuracie srdcia': 0.725,
+            'kuracie žalúdky': 0.725,
+            'mäso dusené': 0.65,
+            'mäso mleté restované': 0.6,
+            'mäso na nudličky': 0.7,
+            'mäso pečené': 0.6,
+            'morčacie mäso bez koze': 0.75,
             'šunka s min. 95% masa': 0.75,
             'telacie mäso': 0.7,
-            'kuracie mäso bez kože': 0.75,
-            'morčacie mäso bez koze': 0.75,
-            zverina: 0.7,
-            'mäso na nudličky': 0.7,
-            'mäso mleté restované': 0.6,
-            'mäso dusené': 0.65,
-            'mäso pečené': 0.6
+            zverina: 0.7
         }
     },
     fish: {
@@ -272,12 +274,12 @@ const conversionGroups = {
             sk: 'Ryby'
         },
         items: {
-            pstruh: 0.85,
-            treska: 0.8,
+            krevety: 0.75,
             losos: 0.8,
             pangasius: 0.8,
-            krevety: 0.75,
-            ryba: 0.9
+            pstruh: 0.85,
+            ryba: 0.9,
+            treska: 0.8
         }
     },
     sides: {
@@ -286,17 +288,18 @@ const conversionGroups = {
             sk: 'Prílohy'
         },
         items: {
-            'Zemiaky / batáty varené': 1.0,
-            'zemiaky / batáty pečené (na plátky alebo mesiačiky)': 0.6,
-            'zemiakové hranolky pečené v trúbe': 0.6,
-            'zemiakové gnocchi': 1.1,
-            cestoviny: 2.3,
-            kuskus: 3.0,
-            ryža: 2.5,
             bulgur: 2.8,
+            cestoviny: 2.3,
             krúpy: 2.8,
+            kuskus: 3.0,
             pohánka: 2.8,
-            strukoviny: 2.5
+            quinoa: 2.75,
+            ryža: 2.5,
+            strukoviny: 2.5,
+            'Zemiaky / batáty varené': 1.0,
+            'zemiakové gnocchi': 1.1,
+            'zemiakové hranolky pečené v trúbe': 0.6,
+            'zemiaky / batáty pečené (na plátky alebo mesiačiky)': 0.6
         }
     }
 };
@@ -345,12 +348,12 @@ function FoodConverter() {
                     children: t.title
                 }, void 0, false, {
                     fileName: "[project]/src/components/FoodConverter.tsx",
-                    lineNumber: 107,
+                    lineNumber: 110,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/FoodConverter.tsx",
-                lineNumber: 106,
+                lineNumber: 109,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -367,25 +370,31 @@ function FoodConverter() {
                                     children: t.rawLabel
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 113,
+                                    lineNumber: 117,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                     id: "weight",
                                     type: "number",
                                     min: "1",
+                                    inputMode: "numeric",
                                     value: rawWeight,
-                                    onChange: (e)=>setRawWeight(Number(e.target.value)),
+                                    onChange: (e)=>{
+                                        const val = e.target.value;
+                                        if (/^\d*$/.test(val)) {
+                                            setRawWeight(val);
+                                        }
+                                    },
                                     className: "border-2 border-black text-lg tw-w-full h-12 rounded-none"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 116,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 112,
+                            lineNumber: 116,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -397,7 +406,7 @@ function FoodConverter() {
                                     children: t.foodType
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 127,
+                                    lineNumber: 137,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -415,23 +424,23 @@ function FoodConverter() {
                                                     children: food.charAt(0).toUpperCase() + food.slice(1)
                                                 }, food, false, {
                                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                                    lineNumber: 141,
+                                                    lineNumber: 151,
                                                     columnNumber: 21
                                                 }, this))
                                         }, groupKey, false, {
                                             fileName: "[project]/src/components/FoodConverter.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 149,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 140,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 126,
+                            lineNumber: 136,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -440,7 +449,7 @@ function FoodConverter() {
                             children: t.convert
                         }, void 0, false, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 150,
+                            lineNumber: 160,
                             columnNumber: 11
                         }, this),
                         cookedWeight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -449,7 +458,7 @@ function FoodConverter() {
                                     className: "my-6 h-0.5 bg-slate-300"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 166,
+                                    lineNumber: 176,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -460,7 +469,7 @@ function FoodConverter() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 167,
+                                    lineNumber: 177,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -471,30 +480,30 @@ function FoodConverter() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/FoodConverter.tsx",
-                                    lineNumber: 168,
+                                    lineNumber: 178,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/FoodConverter.tsx",
-                            lineNumber: 165,
+                            lineNumber: 175,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/FoodConverter.tsx",
-                    lineNumber: 111,
+                    lineNumber: 115,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/FoodConverter.tsx",
-                lineNumber: 110,
+                lineNumber: 114,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FoodConverter.tsx",
-        lineNumber: 96,
+        lineNumber: 99,
         columnNumber: 5
     }, this);
 }
