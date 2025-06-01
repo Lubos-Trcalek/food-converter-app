@@ -134,6 +134,12 @@ export default function FoodConverter() {
                     setRawWeight(val);
                   }
                 }}
+                onKeyDown={e => {
+                  if (e.key === 'Enter') {
+                    e.currentTarget.blur(); // this will hide the keyboard on iOS
+                    handleConvert(); // trigger conversion on Enter as well
+                  }
+                }}
                 className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
               />
             </div>
@@ -148,6 +154,7 @@ export default function FoodConverter() {
                 onChange={e => {
                   setFoodType(e.target.value);
                   setCookedWeight(null);
+                  setRawWeight('');
                 }}
                 className="border-2 border-black p-2 w-full text-lg h-12">
                 {Object.entries(conversionGroups).map(([groupKey, group]) => (
