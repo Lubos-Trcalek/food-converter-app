@@ -106,12 +106,12 @@ export default function FoodConverter() {
       </select> */}
 
       {/* title */}
-      <div className="">
-        <h1 className="text-3xl font-bold pb-4 text-center text-slate-700">{t.title}</h1>
+      <div>
+        <h1 className="text-4xl font-bold pb-4 text-center text-slate-800 font-sans">{t.title}</h1>
       </div>
 
       {/* Card converter */}
-      <Card className="max-w-lg border-2 border-slate-500 w-full drop-shadow-xl drop-shadow-slate-300">
+      <Card className="max-w-lg border-2 border-zinc-800 w-full drop-shadow-2xl ">
         <CardContent className="px-10 py-8">
           <form
             onSubmit={e => {
@@ -119,6 +119,31 @@ export default function FoodConverter() {
               handleConvert();
             }}>
             <div className="mb-6">
+              <Label htmlFor="food" className="mb-2">
+                {t.foodType}
+              </Label>
+              <select
+                id="food"
+                value={foodType}
+                onChange={e => {
+                  setFoodType(e.target.value);
+                  setCookedWeight(null);
+                  setRawWeight('');
+                }}
+                className="border-2 border-black px-2 w-full text-lg h-14">
+                {Object.entries(conversionGroups).map(([groupKey, group]) => (
+                  <optgroup key={groupKey} label={group.label[language]}>
+                    {Object.entries(group.items).map(([food]) => (
+                      <option key={food} value={food}>
+                        {food.charAt(0).toUpperCase() + food.slice(1)}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+
+            <div className="mb-8">
               <Label htmlFor="weight" className="mb-2">
                 {t.rawLabel}
               </Label>
@@ -140,47 +165,22 @@ export default function FoodConverter() {
                     handleConvert(); // trigger conversion on Enter as well
                   }
                 }}
-                className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
+                className="border-2 border-black  h-14 rounded-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:border-green-200"
               />
-            </div>
-
-            <div className="mb-8">
-              <Label htmlFor="food" className="mb-2">
-                {t.foodType}
-              </Label>
-              <select
-                id="food"
-                value={foodType}
-                onChange={e => {
-                  setFoodType(e.target.value);
-                  setCookedWeight(null);
-                  setRawWeight('');
-                }}
-                className="border-2 border-black p-2 w-full text-lg h-12">
-                {Object.entries(conversionGroups).map(([groupKey, group]) => (
-                  <optgroup key={groupKey} label={group.label[language]}>
-                    {Object.entries(group.items).map(([food]) => (
-                      <option key={food} value={food}>
-                        {food.charAt(0).toUpperCase() + food.slice(1)}
-                      </option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
             </div>
 
             <Button
               type="submit"
-              className="border-2 border-black bg-gradient-to-r from-emerald-200 to-green-200 hover:from-emerald-400 hover:to-green-400 text-black w-full text-lg h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer">
+              className=" border-2 border-black text-slate-50 bg-emerald-700 w-full text-xl uppercase font-bold h-16 rounded-md transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-emerald-600">
               {t.convert}
             </Button>
           </form>
 
           {cookedWeight && (
-            <div>
-              <hr className="my-6 h-0.5 bg-slate-300" />
+            <div className="border border-slate-200 rounded-sm mt-6 text-slate-700 bg-slate-100 p-4">
+              {/* <hr className="my-6 h-0.5 bg-slate-300" /> */}
               <span className="text-base">{t.result}:</span>
-              <span className="ml-2 text-2xl font-bold">{cookedWeight}g</span>
+              <span className="ml-1 text-2xl font-bold text-slate-900">{cookedWeight}g</span>
             </div>
           )}
         </CardContent>
