@@ -75,7 +75,7 @@ const translations = {
 
 export default function FoodConverter() {
   const [language] = useState<keyof typeof translations>('sk');
-  const [rawWeight, setRawWeight] = useState(100);
+  const [rawWeight, setRawWeight] = useState('');
   const [foodType, setFoodType] = useState('hydinová pečeň');
   const [cookedWeight, setCookedWeight] = useState<string | null>(null);
 
@@ -90,7 +90,7 @@ export default function FoodConverter() {
       }
     }
     if (rate !== null) {
-      const cooked = rawWeight * rate;
+      const cooked = Number(rawWeight) * rate;
       setCookedWeight(cooked.toFixed(1));
     }
   };
