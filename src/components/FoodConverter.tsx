@@ -113,63 +113,61 @@ export default function FoodConverter() {
       {/* Card converter */}
       <Card className="max-w-lg border-2 border-slate-500 w-full drop-shadow-xl drop-shadow-slate-300">
         <CardContent className="px-10 py-8">
-          <div className="mb-6">
-            <Label htmlFor="weight" className="mb-2">
-              {t.rawLabel}
-            </Label>
-            <Input
-              id="weight"
-              type="number"
-              min="1"
-              inputMode="numeric"
-              value={rawWeight}
-              onChange={e => {
-                const val = e.target.value;
-                if (/^\d*$/.test(val)) {
-                  setRawWeight(val);
-                }
-              }}
-              className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
-            />
-          </div>
-
-          <div className="mb-8">
-            <Label htmlFor="food" className="mb-2">
-              {t.foodType}
-            </Label>
-            <select
-              id="food"
-              value={foodType}
-              onChange={e => {
-                setFoodType(e.target.value);
-                setCookedWeight(null);
-              }}
-              className="border-2 border-black p-2 w-full text-lg h-12">
-              {Object.entries(conversionGroups).map(([groupKey, group]) => (
-                <optgroup key={groupKey} label={group.label[language]}>
-                  {Object.entries(group.items).map(([food]) => (
-                    <option key={food} value={food}>
-                      {food.charAt(0).toUpperCase() + food.slice(1)}
-                    </option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
-          </div>
-
-          <Button
-            onClick={handleConvert}
-            className="border-2 border-black bg-gradient-to-r from-emerald-200 to-green-200 hover:from-emerald-400 hover:to-green-400 text-black w-full text-lg  h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer">
-            {t.convert}
-          </Button>
-
-          {/* divider */}
-
-          {/* {cookedWeight && (
-            <div className="text-xl font-bold pt-4">
-              {t.result}: {cookedWeight} grams
+          <form
+            onSubmit={e => {
+              e.preventDefault(); // prevent page reload
+              handleConvert();
+            }}>
+            <div className="mb-6">
+              <Label htmlFor="weight" className="mb-2">
+                {t.rawLabel}
+              </Label>
+              <Input
+                id="weight"
+                type="number"
+                min="1"
+                inputMode="numeric"
+                value={rawWeight}
+                onChange={e => {
+                  const val = e.target.value;
+                  if (/^\d*$/.test(val)) {
+                    setRawWeight(val);
+                  }
+                }}
+                className="border-2 border-black text-lg tw-w-full h-12 rounded-none"
+              />
             </div>
-          )} */}
+
+            <div className="mb-8">
+              <Label htmlFor="food" className="mb-2">
+                {t.foodType}
+              </Label>
+              <select
+                id="food"
+                value={foodType}
+                onChange={e => {
+                  setFoodType(e.target.value);
+                  setCookedWeight(null);
+                }}
+                className="border-2 border-black p-2 w-full text-lg h-12">
+                {Object.entries(conversionGroups).map(([groupKey, group]) => (
+                  <optgroup key={groupKey} label={group.label[language]}>
+                    {Object.entries(group.items).map(([food]) => (
+                      <option key={food} value={food}>
+                        {food.charAt(0).toUpperCase() + food.slice(1)}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+
+            <Button
+              type="submit"
+              className="border-2 border-black bg-gradient-to-r from-emerald-200 to-green-200 hover:from-emerald-400 hover:to-green-400 text-black w-full text-lg h-11 rounded-none transition-colors duration-500 ease-in-out hover:cursor-pointer">
+              {t.convert}
+            </Button>
+          </form>
 
           {cookedWeight && (
             <div>
